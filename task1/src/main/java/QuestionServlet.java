@@ -10,6 +10,6 @@ public class QuestionServlet extends HttpServlet {
             + "<head><title>Prog.kiev.ua</title></head>"
             + "<body><h1>%s</h1></body></html>";
 
-    final static
+    final staticggg
 }
 
