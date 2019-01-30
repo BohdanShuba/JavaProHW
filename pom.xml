@@ -10,6 +10,8 @@
   <modules>
     <module>task1</module>
     <module>task1_1</module>
+      <module>task2</module>
+      <module>test</module>
   </modules>
   <packaging>pom</packaging>
 
