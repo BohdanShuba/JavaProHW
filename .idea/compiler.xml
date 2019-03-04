@@ -11,6 +11,7 @@
         <module name="task2" />
         <module name="task3" />
         <module name="task3_apartments" />
+        <module name="task4" />
         <module name="test" />
       </profile>
     </annotationProcessing>
