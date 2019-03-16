@@ -11,7 +11,6 @@
 
     <artifactId>task4</artifactId>
     <dependencies>
-
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -22,16 +21,10 @@
             <artifactId>hibernate-validator</artifactId>
             <version>6.0.14.Final</version>
         </dependency>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.15</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
+          <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>5.3.7.Final</version>
+            <version>4.3.9.Final</version>
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
@@ -39,6 +32,16 @@
             <version>4.3.9.Final</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.hibernate.javax.persistence</groupId>
+            <artifactId>hibernate-jpa-2.1-api</artifactId>
+            <version>1.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.persistence</groupId>
+            <artifactId>javax.persistence-api</artifactId>
+            <version>2.2</version>
+        </dependency>
     </dependencies>
 
 

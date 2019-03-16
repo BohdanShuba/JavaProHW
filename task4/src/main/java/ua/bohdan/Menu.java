@@ -1,37 +1,38 @@
-import javax.annotation.sql.DataSourceDefinition;
+package ua.bohdan;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 
 @Entity
-@Table(name = "MenuInRestaurant")
-
-public class Menu {
+@Table(name = "Menu")
+public class Menu implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     @NotNull(message = "dish may not be null")
     private String dish;
 
     @NotNull(message = "price may not be null")
-    private double price;
+    private Double price;
 
     @NotNull(message = "weight may not be null")
-    private int weight;
+    private Integer weight;
 
     @NotNull(message = "discount may not be null")
-    private boolean discount;
+    private Boolean discount;
 
     public Menu() {
     }
 
-    public Menu (String dish, double price, int weight, boolean discount){
+    public Menu (String dish, Double price, Integer weight, Boolean discount){
         this.dish = dish;
         this.price = price;
         this.weight = weight;
         this.discount = discount;
     }
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -43,33 +44,33 @@ public class Menu {
         this.dish = dish;
     }
 
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
-    public int getWeight() {
+    public Integer getWeight() {
         return weight;
     }
 
-    public void setWeight(int weight) {
+    public void setWeight(Integer weight) {
         this.weight = weight;
     }
 
-    public boolean isDiscount() {
+    public Boolean isDiscount() {
         return discount;
     }
 
-    public void setDiscount(boolean discount) {
+    public void setDiscount(Boolean discount) {
         this.discount = discount;
     }
 
     @Override
     public String toString() {
-        return "Menu{" +
+        return "ua.bohdan.Menu{" +
                 "id=" + id +
                 ", dish='" + dish + '\'' +
                 ", price=" + price +
