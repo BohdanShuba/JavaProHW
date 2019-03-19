@@ -5,7 +5,7 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "Menu")
+@Table(name = "restaurantmenu")
 public class Menu implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,12 +26,13 @@ public class Menu implements Serializable {
     public Menu() {
     }
 
-    public Menu (String dish, Double price, Integer weight, Boolean discount){
+    public Menu(String dish, Double price, Integer weight, Boolean discount) {
         this.dish = dish;
         this.price = price;
         this.weight = weight;
         this.discount = discount;
     }
+
     public Integer getId() {
         return id;
     }
@@ -70,12 +71,10 @@ public class Menu implements Serializable {
 
     @Override
     public String toString() {
-        return "ua.bohdan.Menu{" +
-                "id=" + id +
-                ", dish='" + dish + '\'' +
-                ", price=" + price +
-                ", weight=" + weight +
-                ", discount=" + discount +
-                '}';
+        String s;
+        if (discount == true) {
+            s = " ★discount★";
+        } else s = "";
+        return dish + "- " + price + "$/" + weight + "g" + s;
     }
 }
