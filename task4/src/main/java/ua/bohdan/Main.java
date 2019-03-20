@@ -24,6 +24,8 @@ public class Main {
 
             printMenu(menu.getDishDiscount());
 
+            printMenu(menu.chooseRandomDishes());
+
         } finally {
             HibernateUtil.destroy();
         }

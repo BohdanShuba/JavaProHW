@@ -3,11 +3,13 @@ package ua.bohdan;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
 public class SelectedMenu {
     List<Menu> list = null;
+
 
     public void addDish(Menu... dishes) {
         Session session1 = HibernateUtil.getSession();
@@ -23,13 +25,23 @@ public class SelectedMenu {
         session1.close();
     }
 
-    public List<Menu> chooseRandomDishes(){
-        System.out.println("Dishes at a discount:");
-        String query = "FROM Menu ORDER BY rand() LIMIT 1";
-
-
-
-        return getMenuList(query);
+    public List<Menu> chooseRandomDishes() {
+        List<Menu> order = new ArrayList<>();
+        System.out.println("Set of dishes:");
+        String query = "FROM Menu ORDER BY rand()";
+        list = getMenuList(query);
+        int weightDisshSum = 0;
+        for (int i = 0; weightDisshSum < 1000; i++) {
+            if (list.get(i).getWeight() <= 1000) {
+                weightDisshSum += list.get(i).getWeight();
+                order.add(list.get(i));
+            }
+            if (weightDisshSum > 1000) {
+                order.remove(order.size() - 1);
+                break;
+            }
+        }
+        return order;
     }
 
     public List<Menu> getDish() {
@@ -50,23 +62,14 @@ public class SelectedMenu {
             session.beginTransaction();
             Query query = session.createQuery(s);
             list = (List<Menu>) query.list();
-            /////
             session.getTransaction().commit();
         } catch (Exception e) {
             session.getTransaction().rollback();
         }
         session.close();
-        //printMenu(list);
         return list;
     }
 
-    private void printMenu(List<Menu> list) {
-        if (list != null && !list.isEmpty()) {
-            for (Menu menu : list) {
-                System.out.println(menu);
-            }
-        }
-    }
 }
 
 
