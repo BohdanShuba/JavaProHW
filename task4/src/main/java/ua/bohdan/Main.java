@@ -29,7 +29,6 @@ public class Main {
         } finally {
             HibernateUtil.destroy();
         }
-
     }
 
     static void printMenu(List<Menu> list) {
